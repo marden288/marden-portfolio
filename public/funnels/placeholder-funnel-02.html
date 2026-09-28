@@ -1,0 +1,1839 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="description"
+    content="Marden.dev — Web development, software solutions, AI automation, and practical digital systems."
+  >
+
+  <meta
+    name="theme-color"
+    content="#F5F0E8"
+  >
+
+  <title>Web & Digital Solutions — Marden.dev</title>
+
+  <style>
+    /* =========================================================
+       RESET
+       ========================================================= */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background: #F5F0E8;
+      color: #1C1917;
+      line-height: 1.5;
+
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    /* =========================================================
+       VARIABLES
+       ========================================================= */
+
+    :root {
+      --paper: #F5F0E8;
+      --white: #FFFFFF;
+      --ink: #1C1917;
+      --muted: #78716C;
+      --orange: #C2410C;
+      --orange-light: #EA580C;
+      --line: rgba(120, 113, 108, 0.18);
+      --line-strong: rgba(120, 113, 108, 0.30);
+
+      --shadow:
+        0 24px 70px rgba(28, 25, 23, 0.08);
+
+      --radius: 24px;
+    }
+
+    /* =========================================================
+       LAYOUT
+       ========================================================= */
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    section {
+      scroll-margin-top: 90px;
+    }
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      min-height: 78px;
+      padding: 18px 0;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+
+      font-size: 20px;
+      font-weight: 850;
+      letter-spacing: -0.045em;
+    }
+
+    .logo b {
+      color: var(--orange);
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .links a {
+      position: relative;
+      transition:
+        color 180ms ease;
+    }
+
+    .links a::after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -5px;
+
+      height: 1px;
+
+      background: var(--orange);
+
+      transition: right 220ms ease;
+    }
+
+    .links a:hover {
+      color: var(--ink);
+    }
+
+    .links a:hover::after {
+      right: 0;
+    }
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      min-height: 48px;
+
+      padding: 13px 22px;
+
+      border: 1px solid var(--orange);
+      border-radius: 999px;
+
+      background: var(--orange);
+      color: #fff;
+
+      font-size: 14px;
+      font-weight: 750;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 10px 25px rgba(194, 65, 12, 0.15);
+
+      transition:
+        transform 180ms ease,
+        background 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+
+      background: var(--orange-light);
+
+      box-shadow:
+        0 15px 32px rgba(194, 65, 12, 0.22);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--ink);
+
+      border-color: var(--line-strong);
+
+      box-shadow: none;
+    }
+
+    .btn--ghost:hover {
+      background: rgba(255, 255, 255, 0.55);
+      border-color: var(--orange);
+      color: var(--orange);
+      box-shadow: none;
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(320px, 0.95fr);
+
+      gap: clamp(40px, 6vw, 80px);
+
+      align-items: center;
+
+      min-height: 650px;
+
+      padding:
+        clamp(70px, 10vw, 110px)
+        0
+        clamp(70px, 9vw, 100px);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-bottom: 20px;
+
+      color: var(--orange);
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .tag::before {
+      content: "";
+
+      width: 24px;
+      height: 1px;
+
+      background: var(--orange);
+    }
+
+    h1 {
+      max-width: 12ch;
+
+      font-size:
+        clamp(
+          46px,
+          7vw,
+          78px
+        );
+
+      line-height: 0.98;
+
+      letter-spacing: -0.055em;
+
+      font-weight: 850;
+    }
+
+    .hero h1 span {
+      color: var(--orange);
+    }
+
+    p.lede {
+      max-width: 52ch;
+
+      margin:
+        26px
+        0
+        32px;
+
+      color: var(--muted);
+
+      font-size:
+        clamp(16px, 2vw, 19px);
+
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* =========================================================
+       HERO IMAGE / VISUAL
+       ========================================================= */
+
+    .shot {
+      position: relative;
+
+      min-height: 520px;
+
+      aspect-ratio: 4 / 5;
+
+      overflow: hidden;
+
+      border-radius: 30px;
+
+      border: 1px solid var(--line-strong);
+
+      background:
+        linear-gradient(
+          145deg,
+          #FFFFFF 0%,
+          #F8F5EF 45%,
+          #EEE7DC 100%
+        );
+
+      box-shadow: var(--shadow);
+    }
+
+    .shot::before {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      right: -90px;
+      top: -90px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(194, 65, 12, 0.22),
+          transparent 70%
+        );
+
+      filter: blur(10px);
+    }
+
+    .shot::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 16px;
+
+      border: 1px solid rgba(120, 113, 108, 0.18);
+
+      border-radius: 22px;
+
+      pointer-events: none;
+    }
+
+    .shot-content {
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      height: 100%;
+
+      padding: 32px;
+    }
+
+    .shot-badge {
+      display: inline-flex;
+      align-items: center;
+
+      width: fit-content;
+
+      margin-bottom: auto;
+
+      padding: 8px 12px;
+
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.78);
+
+      border: 1px solid var(--line);
+
+      color: var(--orange);
+
+      font-size: 10px;
+      font-weight: 800;
+
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+
+      backdrop-filter: blur(10px);
+    }
+
+    .shot-title {
+      max-width: 9ch;
+
+      font-size: 42px;
+      line-height: 1;
+
+      letter-spacing: -0.05em;
+
+      font-weight: 850;
+    }
+
+    .shot-title span {
+      color: var(--orange);
+    }
+
+    .shot-copy {
+      max-width: 34ch;
+
+      margin-top: 14px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .shot-corner {
+      position: absolute;
+
+      right: 28px;
+      bottom: 28px;
+
+      width: 70px;
+      height: 70px;
+
+      border-radius: 50%;
+
+      background: var(--orange);
+
+      display: grid;
+      place-items: center;
+
+      color: #fff;
+
+      font-size: 25px;
+
+      box-shadow:
+        0 15px 35px rgba(194, 65, 12, 0.28);
+    }
+
+    /* =========================================================
+       SECTION INTRO
+       ========================================================= */
+
+    .section-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      gap: 30px;
+
+      padding:
+        10px
+        0
+        34px;
+    }
+
+    .section-intro h2 {
+      max-width: 13ch;
+
+      margin: 0;
+
+      font-size:
+        clamp(30px, 4vw, 46px);
+
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .section-intro p {
+      max-width: 42ch;
+
+      color: var(--muted);
+
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       FEATURE CARDS
+       ========================================================= */
+
+    .row {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 18px;
+
+      padding:
+        0
+        0
+        90px;
+    }
+
+    .card {
+      position: relative;
+
+      min-height: 240px;
+
+      padding: 30px;
+
+      background: var(--white);
+
+      border: 1px solid var(--line);
+
+      border-radius: 22px;
+
+      box-shadow:
+        0 12px 40px rgba(28, 25, 23, 0.04);
+
+      overflow: hidden;
+
+      transition:
+        transform 220ms ease,
+        box-shadow 220ms ease,
+        border-color 220ms ease;
+    }
+
+    .card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 100px;
+      height: 100px;
+
+      right: -50px;
+      bottom: -50px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(194, 65, 12, 0.08);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(194, 65, 12, 0.28);
+
+      box-shadow:
+        0 20px 50px rgba(28, 25, 23, 0.08);
+    }
+
+    .card .n {
+      margin-bottom: 44px;
+
+      color: var(--orange);
+
+      font-size: 12px;
+      font-weight: 850;
+
+      letter-spacing: 0.14em;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+
+      font-size: 21px;
+
+      letter-spacing: -0.025em;
+    }
+
+    .card p {
+      max-width: 34ch;
+
+      color: var(--muted);
+
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    /* =========================================================
+       PROCESS
+       ========================================================= */
+
+    .process {
+      padding-bottom: 90px;
+    }
+
+    .process-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 1px;
+
+      overflow: hidden;
+
+      border:
+        1px solid var(--line);
+
+      border-radius: 24px;
+
+      background: var(--line);
+    }
+
+    .process-item {
+      padding: 28px;
+
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .process-number {
+      width: 36px;
+      height: 36px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom: 25px;
+
+      border-radius: 50%;
+
+      background: var(--orange);
+
+      color: #fff;
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .process-item h3 {
+      margin-bottom: 8px;
+
+      font-size: 18px;
+    }
+
+    .process-item p {
+      color: var(--muted);
+
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    /* =========================================================
+       TESTIMONIAL / CTA BAND
+       ========================================================= */
+
+    .band {
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+
+      gap: 40px;
+
+      align-items: center;
+
+      margin-bottom: 90px;
+
+      padding:
+        clamp(36px, 6vw, 64px);
+
+      overflow: hidden;
+
+      background:
+        #1C1917;
+
+      color: #fff;
+
+      border-radius: 30px;
+
+      box-shadow:
+        0 25px 70px rgba(28, 25, 23, 0.16);
+    }
+
+    .band::before {
+      content: "";
+
+      position: absolute;
+
+      width: 360px;
+      height: 360px;
+
+      right: -120px;
+      top: -180px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(194, 65, 12, 0.48),
+          transparent 70%
+        );
+    }
+
+    .band-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .quote {
+      max-width: 30ch;
+
+      font-size:
+        clamp(22px, 3vw, 32px);
+
+      line-height: 1.3;
+
+      letter-spacing: -0.025em;
+
+      font-weight: 650;
+    }
+
+    .quote span {
+      color: #FDBA74;
+    }
+
+    .who {
+      margin-top: 16px;
+
+      color: rgba(255, 255, 255, 0.62);
+
+      font-size: 13px;
+    }
+
+    .band .btn {
+      position: relative;
+      z-index: 2;
+
+      background: #fff;
+      border-color: #fff;
+
+      color: var(--ink);
+
+      box-shadow: none;
+    }
+
+    .band .btn:hover {
+      background: #FDBA74;
+      border-color: #FDBA74;
+    }
+
+    /* =========================================================
+       CONTACT
+       ========================================================= */
+
+    .contact {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(320px, 1.1fr);
+
+      gap: 60px;
+
+      align-items: start;
+
+      padding:
+        0
+        0
+        90px;
+    }
+
+    .contact-copy h2 {
+      max-width: 10ch;
+
+      margin-bottom: 18px;
+
+      font-size:
+        clamp(34px, 5vw, 56px);
+
+      line-height: 1;
+
+      letter-spacing: -0.045em;
+    }
+
+    .contact-copy p {
+      max-width: 44ch;
+
+      color: var(--muted);
+
+      font-size: 15px;
+
+      line-height: 1.7;
+    }
+
+    .contact-info {
+      display: grid;
+
+      gap: 12px;
+
+      margin-top: 26px;
+    }
+
+    .contact-info a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      width: fit-content;
+
+      color: var(--ink);
+
+      font-size: 14px;
+      font-weight: 700;
+
+      transition: color 180ms ease;
+    }
+
+    .contact-info a:hover {
+      color: var(--orange);
+    }
+
+    .contact-icon {
+      display: grid;
+      place-items: center;
+
+      width: 32px;
+      height: 32px;
+
+      border-radius: 9px;
+
+      background: rgba(194, 65, 12, 0.08);
+
+      color: var(--orange);
+
+      font-size: 14px;
+    }
+
+    /* =========================================================
+       FORM
+       ========================================================= */
+
+    .form {
+      display: grid;
+      gap: 14px;
+
+      padding: 30px;
+
+      background: var(--white);
+
+      border:
+        1px solid var(--line);
+
+      border-radius: 24px;
+
+      box-shadow:
+        0 20px 55px rgba(28, 25, 23, 0.06);
+    }
+
+    .form-title {
+      margin-bottom: 4px;
+
+      font-size: 20px;
+      font-weight: 800;
+
+      letter-spacing: -0.02em;
+    }
+
+    .form-subtitle {
+      margin-bottom: 10px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    .field {
+      width: 100%;
+      min-height: 50px;
+
+      padding:
+        0
+        15px;
+
+      border:
+        1px solid var(--line-strong);
+
+      border-radius: 12px;
+
+      background: #FFFEFC;
+
+      color: var(--ink);
+
+      outline: none;
+
+      font-size: 14px;
+
+      transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    textarea.field {
+      min-height: 120px;
+
+      padding:
+        14px
+        15px;
+
+      resize: vertical;
+    }
+
+    .field::placeholder {
+      color: #A8A29E;
+    }
+
+    .field:focus {
+      border-color: var(--orange);
+
+      box-shadow:
+        0 0 0 3px rgba(194, 65, 12, 0.10);
+    }
+
+    .form .btn {
+      width: 100%;
+
+      margin-top: 4px;
+    }
+
+    .form-note {
+      color: var(--muted);
+
+      font-size: 11px;
+      line-height: 1.5;
+
+      text-align: center;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      padding:
+        28px
+        0
+        40px;
+
+      border-top:
+        1px solid var(--line);
+
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: var(--ink);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a:hover {
+      color: var(--orange);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 70px;
+      }
+
+      .shot {
+        width: min(100%, 560px);
+
+        min-height: 480px;
+
+        margin: 0 auto;
+      }
+
+      .contact {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+      }
+
+      .band {
+        grid-template-columns: 1fr;
+      }
+
+      .band .btn {
+        width: fit-content;
+      }
+    }
+
+    @media (max-width: 760px) {
+
+      .wrap {
+        width: min(100% - 28px, 1120px);
+      }
+
+      nav {
+        min-height: 70px;
+      }
+
+      .links {
+        display: none;
+      }
+
+      nav > .btn {
+        min-height: 42px;
+
+        padding:
+          10px
+          17px;
+
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: auto;
+
+        gap: 50px;
+
+        padding:
+          60px
+          0
+          70px;
+      }
+
+      h1 {
+        max-width: 10ch;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .shot {
+        min-height: 430px;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+
+        padding-bottom: 70px;
+      }
+
+      .card {
+        min-height: 210px;
+      }
+
+      .process {
+        padding-bottom: 70px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .band {
+        margin-bottom: 70px;
+
+        border-radius: 24px;
+      }
+
+      .contact {
+        padding-bottom: 70px;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .logo {
+        font-size: 18px;
+      }
+
+      nav > .btn {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .tag {
+        font-size: 10px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .shot {
+        min-height: 390px;
+
+        border-radius: 22px;
+      }
+
+      .shot-content {
+        padding: 24px;
+      }
+
+      .shot-title {
+        font-size: 34px;
+      }
+
+      .section-intro {
+        display: block;
+      }
+
+      .section-intro h2 {
+        margin-bottom: 15px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .form {
+        padding: 22px;
+      }
+
+      .band {
+        padding: 30px 24px;
+      }
+    }
+
+    /* =========================================================
+       ACCESSIBILITY
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <!-- =======================================================
+         NAVIGATION
+         ======================================================= -->
+
+    <nav aria-label="Main navigation">
+
+      <a
+        class="logo"
+        href="/"
+        aria-label="Marden.dev home"
+      >
+        Marden<b>.</b>dev
+      </a>
+
+      <div class="links">
+
+        <a href="#services">
+          SERVICES
+        </a>
+
+        <a href="#process">
+          PROCESS
+        </a>
+
+        <a href="#contact">
+          CONTACT
+        </a>
+
+      </div>
+
+      <a
+        class="btn"
+        href="#contact"
+      >
+        Let's Work Together
+      </a>
+
+    </nav>
+
+
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
+
+    <main>
+
+      <section
+        class="hero"
+        aria-labelledby="hero-title"
+      >
+
+        <div>
+
+          <span class="tag">
+            MARDEN.DEV — DIGITAL SOLUTIONS
+          </span>
+
+          <h1 id="hero-title">
+            Build something
+            <span>that works.</span>
+          </h1>
+
+          <p class="lede">
+            I create modern websites, software solutions,
+            AI-powered systems, and practical digital
+            experiences designed around real-world needs.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              class="btn"
+              href="#contact"
+            >
+              Start a Project
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a
+              class="btn btn--ghost"
+              href="#services"
+            >
+              Explore Services
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- HERO VISUAL -->
+
+        <div
+          class="shot"
+          aria-label="Marden.dev digital solutions"
+        >
+
+          <div class="shot-content">
+
+            <span class="shot-badge">
+              Featured Funnel
+            </span>
+
+            <div>
+
+              <div class="shot-title">
+                Digital
+                <span>Ideas.</span>
+              </div>
+
+              <p class="shot-copy">
+                From websites and software to automation
+                and technology projects — turn an idea
+                into something usable.
+              </p>
+
+            </div>
+
+          </div>
+
+          <div
+            class="shot-corner"
+            aria-hidden="true"
+          >
+            ↗
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           SERVICES
+           ===================================================== -->
+
+      <section
+        id="services"
+        aria-labelledby="services-title"
+      >
+
+        <div class="section-intro">
+
+          <div>
+
+            <span class="tag">
+              What I Build
+            </span>
+
+            <h2 id="services-title">
+              Practical technology for real problems.
+            </h2>
+
+          </div>
+
+          <p>
+            A focused mix of development, automation,
+            support, and technology solutions.
+          </p>
+
+        </div>
+
+
+        <div class="row">
+
+          <!-- CARD 01 -->
+
+          <article class="card">
+
+            <div class="n">
+              01 — WEB
+            </div>
+
+            <h3>
+              Web Development
+            </h3>
+
+            <p>
+              Responsive websites, portfolio sites,
+              business pages, landing pages, and
+              custom web applications.
+            </p>
+
+          </article>
+
+
+          <!-- CARD 02 -->
+
+          <article class="card">
+
+            <div class="n">
+              02 — SOFTWARE
+            </div>
+
+            <h3>
+              Software & Systems
+            </h3>
+
+            <p>
+              Practical software systems, dashboards,
+              databases, APIs, and digital tools
+              designed for specific workflows.
+            </p>
+
+          </article>
+
+
+          <!-- CARD 03 -->
+
+          <article class="card">
+
+            <div class="n">
+              03 — AI
+            </div>
+
+            <h3>
+              AI & Automation
+            </h3>
+
+            <p>
+              AI-assisted workflows, automation,
+              integrations, and technology experiments
+              that reduce repetitive work.
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           PROCESS
+           ===================================================== -->
+
+      <section
+        id="process"
+        class="process"
+        aria-labelledby="process-title"
+      >
+
+        <div class="section-intro">
+
+          <div>
+
+            <span class="tag">
+              Simple Process
+            </span>
+
+            <h2 id="process-title">
+              From idea to working solution.
+            </h2>
+
+          </div>
+
+          <p>
+            A straightforward process keeps the project
+            focused from the first conversation to delivery.
+          </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+          <article class="process-item">
+
+            <div class="process-number">
+              01
+            </div>
+
+            <h3>
+              Understand
+            </h3>
+
+            <p>
+              We identify the goal, requirements,
+              users, features, and expected result.
+            </p>
+
+          </article>
+
+
+          <article class="process-item">
+
+            <div class="process-number">
+              02
+            </div>
+
+            <h3>
+              Build
+            </h3>
+
+            <p>
+              The design and technology are developed
+              around the actual requirements of the project.
+            </p>
+
+          </article>
+
+
+          <article class="process-item">
+
+            <div class="process-number">
+              03
+            </div>
+
+            <h3>
+              Launch
+            </h3>
+
+            <p>
+              The finished solution is tested, refined,
+              deployed, and prepared for actual use.
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           CTA BAND
+           ===================================================== -->
+
+      <section
+        class="band"
+        aria-label="Project call to action"
+      >
+
+        <div class="band-content">
+
+          <div class="quote">
+            Have an idea?
+            <span>
+              Let's turn it into something real.
+            </span>
+          </div>
+
+          <div class="who">
+            Marden C. Barangan — Software Developer /
+            Web Developer / Computer Engineer
+          </div>
+
+        </div>
+
+        <a
+          class="btn"
+          href="#contact"
+        >
+          Discuss Your Project →
+        </a>
+
+      </section>
+
+
+      <!-- =====================================================
+           CONTACT
+           ===================================================== -->
+
+      <section
+        id="contact"
+        class="contact"
+        aria-labelledby="contact-title"
+      >
+
+        <div class="contact-copy">
+
+          <span class="tag">
+            Get In Touch
+          </span>
+
+          <h2 id="contact-title">
+            Let's build your next project.
+          </h2>
+
+          <p>
+            Tell me what you want to build, improve,
+            automate, or launch. Include as much detail
+            as you can so the project can start with a
+            clear direction.
+          </p>
+
+
+          <div class="contact-info">
+
+            <a
+              href="mailto:mardenbarangan0728@gmail.com"
+            >
+
+              <span
+                class="contact-icon"
+                aria-hidden="true"
+              >
+                @
+              </span>
+
+              mardenbarangan0728@gmail.com
+
+            </a>
+
+
+            <a
+              href="https://github.com/marden288"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+
+              <span
+                class="contact-icon"
+                aria-hidden="true"
+              >
+                GH
+              </span>
+
+              github.com/marden288
+
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- CONTACT FORM -->
+
+        <form
+          class="form"
+          id="projectForm"
+        >
+
+          <div class="form-title">
+            Start a conversation
+          </div>
+
+          <div class="form-subtitle">
+            Send the basic details of your project.
+          </div>
+
+
+          <input
+            class="field"
+            type="text"
+            name="name"
+            placeholder="Your name"
+            autocomplete="name"
+            required
+          >
+
+
+          <input
+            class="field"
+            type="email"
+            name="email"
+            placeholder="Your email"
+            autocomplete="email"
+            required
+          >
+
+
+          <input
+            class="field"
+            type="text"
+            name="project"
+            placeholder="What do you want to build?"
+            required
+          >
+
+
+          <textarea
+            class="field"
+            name="message"
+            placeholder="Tell me about your project..."
+            required
+          ></textarea>
+
+
+          <button
+            class="btn"
+            type="submit"
+          >
+            Send Project Inquiry →
+          </button>
+
+
+          <div class="form-note">
+            This form opens your email application
+            with the project details prepared.
+          </div>
+
+        </form>
+
+      </section>
+
+    </main>
+
+
+    <!-- =======================================================
+         FOOTER
+         ======================================================= -->
+
+    <footer>
+
+      <span>
+        © <strong>Marden.dev</strong>
+        <span id="year"></span>
+      </span>
+
+      <div class="footer-links">
+
+        <a href="/">
+          Portfolio
+        </a>
+
+        <a
+          href="https://github.com/marden288"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+
+      </div>
+
+    </footer>
+
+  </div>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
+
+  <script>
+
+    /* ---------------------------------------------------------
+       CURRENT YEAR
+       --------------------------------------------------------- */
+
+    const yearElement =
+      document.getElementById("year");
+
+    if (yearElement) {
+      yearElement.textContent =
+        new Date().getFullYear();
+    }
+
+
+    /* ---------------------------------------------------------
+       CONTACT FORM
+       --------------------------------------------------------- */
+
+    const projectForm =
+      document.getElementById("projectForm");
+
+    if (projectForm) {
+
+      projectForm.addEventListener(
+        "submit",
+        function (event) {
+
+          event.preventDefault();
+
+          const formData =
+            new FormData(projectForm);
+
+          const name =
+            String(
+              formData.get("name") || ""
+            ).trim();
+
+          const email =
+            String(
+              formData.get("email") || ""
+            ).trim();
+
+          const project =
+            String(
+              formData.get("project") || ""
+            ).trim();
+
+          const message =
+            String(
+              formData.get("message") || ""
+            ).trim();
+
+
+          const subject =
+            encodeURIComponent(
+              `Project Inquiry — ${project}`
+            );
+
+
+          const body =
+            encodeURIComponent(
+`Hello Marden,
+
+My name is ${name}.
+
+I'm interested in:
+${project}
+
+Email:
+${email}
+
+Project details:
+${message}
+
+Thank you.`
+            );
+
+
+          window.location.href =
+            `mailto:mardenbarangan0728@gmail.com?subject=${subject}&body=${body}`;
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>

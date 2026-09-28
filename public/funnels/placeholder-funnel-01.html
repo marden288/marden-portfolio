@@ -1,0 +1,1147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+
+  <meta
+    name="description"
+    content="Marden.dev — Digital experiences, web development, automation, and technology solutions."
+  />
+
+  <meta
+    name="theme-color"
+    content="#0b1020"
+  />
+
+  <title>Marden.dev — Digital Solutions</title>
+
+  <style>
+    /* =========================================================
+       RESET
+       ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 80% 10%,
+          rgba(56, 189, 248, 0.10),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 15% 50%,
+          rgba(99, 102, 241, 0.08),
+          transparent 32%
+        ),
+        #0b1020;
+
+      color: #f8fafc;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    /* =========================================================
+       GLOBAL
+       ========================================================= */
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .muted {
+      color: #94a3b8;
+    }
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      min-height: 82px;
+
+      border-bottom: 1px solid rgba(148, 163, 184, 0.10);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .logo b {
+      color: #38bdf8;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+
+      color: #94a3b8;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .links a {
+      transition:
+        color 180ms ease,
+        transform 180ms ease;
+    }
+
+    .links a:hover {
+      color: #f8fafc;
+      transform: translateY(-1px);
+    }
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 48px;
+
+      padding: 0 22px;
+
+      border: 1px solid transparent;
+      border-radius: 999px;
+
+      background: #38bdf8;
+      color: #07111f;
+
+      font-size: 14px;
+      font-weight: 800;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 12px 30px rgba(56, 189, 248, 0.16);
+
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+
+      background: #67cff9;
+
+      box-shadow:
+        0 16px 38px rgba(56, 189, 248, 0.24);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: #f8fafc;
+
+      border-color:
+        rgba(148, 163, 184, 0.35);
+
+      box-shadow: none;
+    }
+
+    .btn--ghost:hover {
+      background:
+        rgba(148, 163, 184, 0.08);
+
+      border-color:
+        rgba(148, 163, 184, 0.55);
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(360px, 0.95fr);
+
+      gap: 64px;
+      align-items: center;
+
+      padding:
+        86px 0
+        90px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+
+      margin-bottom: 20px;
+
+      color: #38bdf8;
+
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+
+      text-transform: uppercase;
+    }
+
+    .tag::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      margin-right: 9px;
+
+      border-radius: 50%;
+
+      background: #38bdf8;
+
+      box-shadow:
+        0 0 14px rgba(56, 189, 248, 0.75);
+    }
+
+    h1 {
+      max-width: 11ch;
+
+      font-size:
+        clamp(42px, 6vw, 76px);
+
+      line-height: 0.98;
+
+      letter-spacing: -0.055em;
+
+      font-weight: 850;
+    }
+
+    .hero-title-accent {
+      color: #38bdf8;
+    }
+
+    p.lede {
+      max-width: 52ch;
+
+      margin:
+        26px 0
+        32px;
+
+      color: #94a3b8;
+
+      font-size:
+        clamp(16px, 2vw, 19px);
+
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* =========================================================
+       FORM PANEL
+       ========================================================= */
+
+    .form {
+      position: relative;
+
+      padding: 32px;
+
+      border:
+        1px solid rgba(148, 163, 184, 0.16);
+
+      border-radius: 28px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(30, 41, 59, 0.92),
+          rgba(15, 23, 42, 0.96)
+        );
+
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.30);
+
+      overflow: hidden;
+    }
+
+    .form::before {
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      right: -80px;
+      top: -80px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(56, 189, 248, 0.10);
+
+      filter: blur(10px);
+
+      pointer-events: none;
+    }
+
+    .form-head {
+      position: relative;
+
+      margin-bottom: 24px;
+    }
+
+    .form-label {
+      display: block;
+
+      margin-bottom: 7px;
+
+      color: #38bdf8;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 0.14em;
+
+      text-transform: uppercase;
+    }
+
+    .form-title {
+      font-size: 25px;
+      font-weight: 800;
+
+      letter-spacing: -0.025em;
+    }
+
+    .form-description {
+      margin-top: 7px;
+
+      color: #94a3b8;
+
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .form-fields {
+      display: grid;
+      gap: 12px;
+    }
+
+    .input {
+      width: 100%;
+      height: 50px;
+
+      padding:
+        0 15px;
+
+      border:
+        1px solid rgba(148, 163, 184, 0.18);
+
+      border-radius: 13px;
+
+      outline: none;
+
+      background:
+        rgba(15, 23, 42, 0.85);
+
+      color: #f8fafc;
+
+      transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease;
+    }
+
+    .input::placeholder {
+      color: #64748b;
+    }
+
+    .input:focus {
+      border-color: #38bdf8;
+
+      background:
+        rgba(15, 23, 42, 1);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(56, 189, 248, 0.10);
+    }
+
+    textarea.input {
+      height: 110px;
+
+      padding-top: 14px;
+      padding-bottom: 14px;
+
+      resize: vertical;
+    }
+
+    .form .btn {
+      width: 100%;
+      margin-top: 4px;
+    }
+
+    .form-status {
+      min-height: 20px;
+
+      margin-top: 4px;
+
+      color: #94a3b8;
+
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* =========================================================
+       FEATURE ROW
+       ========================================================= */
+
+    .row {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 18px;
+
+      padding:
+        0 0
+        90px;
+    }
+
+    .card {
+      position: relative;
+
+      min-height: 220px;
+
+      padding: 30px;
+
+      border:
+        1px solid rgba(148, 163, 184, 0.13);
+
+      border-radius: 22px;
+
+      background:
+        rgba(30, 41, 59, 0.62);
+
+      transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        background 220ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(56, 189, 248, 0.32);
+
+      background:
+        rgba(30, 41, 59, 0.85);
+    }
+
+    .card .n {
+      margin-bottom: 42px;
+
+      color: #38bdf8;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 0.14em;
+    }
+
+    .card h3 {
+      margin-bottom: 9px;
+
+      font-size: 20px;
+
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      color: #94a3b8;
+
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       TESTIMONIAL / CTA BAND
+       ========================================================= */
+
+    .band {
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+
+      gap: 40px;
+
+      align-items: center;
+
+      margin-bottom: 90px;
+
+      padding: 54px;
+
+      border:
+        1px solid rgba(148, 163, 184, 0.14);
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.95),
+          rgba(15, 23, 42, 0.90)
+        );
+
+      overflow: hidden;
+    }
+
+    .band::after {
+      content: "";
+
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      right: -120px;
+      bottom: -150px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(56, 189, 248, 0.09);
+
+      filter: blur(20px);
+
+      pointer-events: none;
+    }
+
+    .quote {
+      position: relative;
+      z-index: 1;
+
+      max-width: 38ch;
+
+      font-size:
+        clamp(21px, 3vw, 29px);
+
+      line-height: 1.35;
+
+      letter-spacing: -0.025em;
+    }
+
+    .who {
+      position: relative;
+      z-index: 1;
+
+      margin-top: 16px;
+
+      color: #94a3b8;
+
+      font-size: 13px;
+    }
+
+    .band .btn {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      padding:
+        28px 0
+        40px;
+
+      border-top:
+        1px solid rgba(148, 163, 184, 0.12);
+
+      color: #64748b;
+
+      font-size: 12px;
+    }
+
+    .footer-brand {
+      color: #94a3b8;
+      font-weight: 700;
+    }
+
+    .footer-brand span {
+      color: #38bdf8;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        padding-top: 65px;
+      }
+
+      h1 {
+        max-width: 12ch;
+      }
+
+      .form {
+        max-width: 650px;
+      }
+
+      .band {
+        grid-template-columns: 1fr;
+
+        padding: 40px;
+      }
+
+      .band .btn {
+        width: fit-content;
+      }
+    }
+
+    @media (max-width: 760px) {
+
+      .wrap {
+        width:
+          min(100% - 28px, 1120px);
+      }
+
+      nav {
+        min-height: 70px;
+      }
+
+      .links {
+        display: none;
+      }
+
+      .hero {
+        padding:
+          52px 0
+          70px;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+
+        padding-bottom: 70px;
+      }
+
+      .card {
+        min-height: auto;
+      }
+
+      .band {
+        margin-bottom: 70px;
+
+        padding: 30px;
+      }
+
+      footer {
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      h1 {
+        font-size: 44px;
+      }
+
+      p.lede {
+        font-size: 16px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .form {
+        padding: 23px;
+        border-radius: 22px;
+      }
+
+      .band {
+        border-radius: 22px;
+      }
+    }
+
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <!-- =======================================================
+         NAVIGATION
+         ======================================================= -->
+
+    <nav>
+
+      <a
+        class="logo"
+        href="/"
+        aria-label="Marden.dev home"
+      >
+        Marden<span>.</span>dev
+      </a>
+
+      <div class="links">
+
+        <a href="#services">
+          SERVICES
+        </a>
+
+        <a href="#process">
+          PROCESS
+        </a>
+
+        <a href="#contact">
+          CONTACT
+        </a>
+
+      </div>
+
+      <a
+        class="btn"
+        href="#contact"
+      >
+        Let's Talk
+      </a>
+
+    </nav>
+
+
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
+
+    <main>
+
+      <section class="hero">
+
+        <div>
+
+          <span class="tag">
+            Digital Solutions
+          </span>
+
+          <h1>
+            Build something
+            <span class="hero-title-accent">
+              meaningful.
+            </span>
+          </h1>
+
+          <p class="lede">
+            I build digital experiences that combine
+            engineering, creativity, and technology —
+            from websites and software to automation
+            and practical technology solutions.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              class="btn"
+              href="#contact"
+            >
+              Start a Project
+            </a>
+
+            <a
+              class="btn btn--ghost"
+              href="#services"
+            >
+              Explore Services
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             CONTACT FORM
+             ===================================================== -->
+
+        <form
+          class="form"
+          id="contact"
+        >
+
+          <div class="form-head">
+
+            <span class="form-label">
+              Project Inquiry
+            </span>
+
+            <h2 class="form-title">
+              Tell me about your project.
+            </h2>
+
+            <p class="form-description">
+              Send a quick message and I'll know
+              what you're looking to build.
+            </p>
+
+          </div>
+
+          <div class="form-fields">
+
+            <input
+              class="input"
+              type="text"
+              name="name"
+              placeholder="Your name"
+              autocomplete="name"
+              required
+            />
+
+            <input
+              class="input"
+              type="email"
+              name="email"
+              placeholder="Email address"
+              autocomplete="email"
+              required
+            />
+
+            <input
+              class="input"
+              type="text"
+              name="phone"
+              placeholder="Phone / WhatsApp"
+              autocomplete="tel"
+            />
+
+            <textarea
+              class="input"
+              name="message"
+              placeholder="What would you like to build?"
+              required
+            ></textarea>
+
+            <button
+              class="btn"
+              type="submit"
+            >
+              Send Inquiry
+            </button>
+
+            <p
+              class="form-status"
+              id="form-status"
+              aria-live="polite"
+            ></p>
+
+          </div>
+
+        </form>
+
+      </section>
+
+
+      <!-- =====================================================
+           SERVICES
+           ===================================================== -->
+
+      <section
+        class="row"
+        id="services"
+        aria-label="Services"
+      >
+
+        <article class="card">
+
+          <div class="n">
+            01
+          </div>
+
+          <h3>
+            Web Development
+          </h3>
+
+          <p>
+            Responsive websites and modern web
+            experiences designed for desktop,
+            mobile, and everyday users.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="n">
+            02
+          </div>
+
+          <h3>
+            Software & Automation
+          </h3>
+
+          <p>
+            Practical software systems and
+            automation workflows that help simplify
+            repetitive digital tasks.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="n">
+            03
+          </div>
+
+          <h3>
+            Technology Solutions
+          </h3>
+
+          <p>
+            From technical support to embedded
+            projects, I turn technical requirements
+            into usable solutions.
+          </p>
+
+        </article>
+
+      </section>
+
+
+      <!-- =====================================================
+           PROCESS / CTA
+           ===================================================== -->
+
+      <section
+        class="band"
+        id="process"
+      >
+
+        <div>
+
+          <div class="quote">
+            “Good technology should be useful,
+            understandable, and built around
+            the people who use it.”
+          </div>
+
+          <div class="who">
+            — Marden C. Barangan · Marden.dev
+          </div>
+
+        </div>
+
+        <a
+          class="btn"
+          href="#contact"
+        >
+          Discuss Your Project
+        </a>
+
+      </section>
+
+    </main>
+
+
+    <!-- =======================================================
+         FOOTER
+         ======================================================= -->
+
+    <footer>
+
+      <span class="footer-brand">
+        © <span id="year"></span>
+        Marden.dev
+      </span>
+
+      <span>
+        Digital experiences · Software · Technology
+      </span>
+
+    </footer>
+
+  </div>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
+
+  <script>
+
+    /* ---------------------------------------------------------
+       CURRENT YEAR
+       --------------------------------------------------------- */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* ---------------------------------------------------------
+       DEMO FORM
+       ---------------------------------------------------------
+
+       This makes the form interactive.
+
+       IMPORTANT:
+       This does NOT send the form to a database or email yet.
+
+       Replace the submit section with your actual webhook /
+       backend endpoint when you are ready.
+       --------------------------------------------------------- */
+
+    const form =
+      document.getElementById("contact");
+
+    const status =
+      document.getElementById("form-status");
+
+    form.addEventListener("submit", function (event) {
+
+      event.preventDefault();
+
+      const formData =
+        new FormData(form);
+
+      const name =
+        String(formData.get("name") || "").trim();
+
+      const email =
+        String(formData.get("email") || "").trim();
+
+      const message =
+        String(formData.get("message") || "").trim();
+
+
+      if (!name || !email || !message) {
+
+        status.textContent =
+          "Please complete the required fields.";
+
+        return;
+      }
+
+
+      status.textContent =
+        "Thanks, " + name +
+        "! Your inquiry is ready to send.";
+
+
+      /*
+        PLACE YOUR REAL FORM SUBMISSION HERE.
+
+        Example:
+
+        fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            message
+          })
+        });
+      */
+
+
+      form.reset();
+
+    });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- =========================
+         VIEWPORT
+    ========================== -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <!-- =========================
+         BASIC SEO
+    ========================== -->
+
+    <title>
+      Marden C. Barangan | Software Developer & Computer Engineer
+    </title>
+
+    <meta
+      name="description"
+      content="Marden C. Barangan is a Computer Engineering graduate focused on software development, web development, embedded systems, AI, automation, and technology projects."
+    />
+
+    <meta
+      name="keywords"
+      content="Marden C. Barangan, Marden Barangan, Software Developer, Web Developer, Computer Engineer, Computer Engineering, React Developer, TypeScript, Python, Node.js, Arduino, Raspberry Pi, AI, Automation, Philippines"
+    />
+
+    <meta
+      name="author"
+      content="Marden C. Barangan"
+    />
+
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
+    <meta
+      name="googlebot"
+      content="index, follow"
+    />
+
+    <!-- Replace with your actual deployed domain -->
+    <link
+      rel="canonical"
+      href="https://mardenportfolio.com/"
+    />
+
+    <!-- =========================
+         THEME
+    ========================== -->
+
+    <meta
+      name="theme-color"
+      content="#F4F4ED"
+    />
+
+    <meta
+      name="color-scheme"
+      content="light dark"
+    />
+
+    <!-- =========================
+         FAVICON
+    ========================== -->
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      href="/favicon.svg"
+    />
+
+    <!-- =========================
+         PERFORMANCE
+    ========================== -->
+
+    <link
+      rel="preload"
+      as="image"
+      href="/avatar.jpg"
+      fetchpriority="high"
+      media="(min-width: 768px)"
+    />
+
+    <!-- =========================
+         SECURITY
+    ========================== -->
+
+    <meta
+      http-equiv="X-Content-Type-Options"
+      content="nosniff"
+    />
+
+    <meta
+      name="referrer"
+      content="strict-origin-when-cross-origin"
+    />
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta
+      property="og:type"
+      content="website"
+    />
+
+    <meta
+      property="og:site_name"
+      content="Marden C. Barangan"
+    />
+
+    <meta
+      property="og:title"
+      content="Marden C. Barangan | Software Developer & Computer Engineer"
+    />
+
+    <meta
+      property="og:description"
+      content="Portfolio of Marden C. Barangan — Software Developer, Web Developer, and Computer Engineer focused on web applications, AI, automation, embedded systems, and technology projects."
+    />
+
+    <meta
+      property="og:url"
+      content="https://mardenportfolio.com/"
+    />
+
+    <meta
+      property="og:image"
+      content="https://mardenportfolio.com/avatar.jpg"
+    />
+
+    <meta
+      property="og:image:alt"
+      content="Marden C. Barangan"
+    />
+
+    <meta
+      property="og:image:type"
+      content="image/jpeg"
+    />
+
+    <meta
+      property="og:locale"
+      content="en_US"
+    />
+
+    <!-- =========================
+         TWITTER / X
+    ========================== -->
+
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+
+    <meta
+      name="twitter:title"
+      content="Marden C. Barangan | Software Developer & Computer Engineer"
+    />
+
+    <meta
+      name="twitter:description"
+      content="Portfolio of Marden C. Barangan — Software Developer, Web Developer, and Computer Engineer."
+    />
+
+    <meta
+      name="twitter:image"
+      content="https://mardenportfolio.com/avatar.jpg"
+    />
+
+    <meta
+      name="twitter:image:alt"
+      content="Marden C. Barangan"
+    />
+
+    <!-- =========================
+         THEME BEFORE FIRST PAINT
+    ========================== -->
+
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("theme");
+
+          document.documentElement.dataset.theme =
+            theme === "dark" ? "dark" : "light";
+        } catch (error) {
+          document.documentElement.dataset.theme =
+            "light";
+        }
+
+        var isDark =
+          document.documentElement.dataset.theme ===
+          "dark";
+
+        var themeColor =
+          document.querySelector(
+            'meta[name="theme-color"]'
+          );
+
+        if (themeColor) {
+          themeColor.setAttribute(
+            "content",
+            isDark ? "#070B14" : "#F4F4ED"
+          );
+        }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this website.
+    </noscript>
+
+    <!-- =========================
+         REACT ROOT
+    ========================== -->
+
+    <div id="root"></div>
+
+    <!-- =========================
+         VITE / REACT
+    ========================== -->
+
+    <script
+      type="module"
+      src="/src/main.tsx"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,1687 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+
+  <meta
+    name="description"
+    content="Marden C. Barangan — Software Developer, Web Developer and Computer Engineer."
+  />
+
+  <meta name="theme-color" content="#0B1F17" />
+
+  <title>Smart Digital Solutions — Marden C. Barangan</title>
+
+  <style>
+    /* =========================================================
+       RESET
+       ========================================================= */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 80% 10%,
+          rgba(74, 222, 128, 0.10),
+          transparent 28%
+        ),
+        #0B1F17;
+
+      color: #ECFDF5;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    /* =========================================================
+       VARIABLES
+       ========================================================= */
+
+    :root {
+      --bg: #0B1F17;
+      --surface: #12301F;
+      --surface-2: #163A26;
+
+      --text: #ECFDF5;
+      --muted: #86B59C;
+
+      --green: #4ADE80;
+      --green-light: #86EFAC;
+
+      --border: rgba(134, 181, 156, 0.18);
+      --border-strong: rgba(134, 181, 156, 0.30);
+
+      --shadow:
+        0 30px 80px rgba(0, 0, 0, 0.28);
+
+      --radius: 24px;
+      --max-width: 1160px;
+    }
+
+    /* =========================================================
+       GLOBAL
+       ========================================================= */
+
+    .wrap {
+      width: min(
+        calc(100% - 48px),
+        var(--max-width)
+      );
+
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      color: var(--green);
+
+      font-size: 12px;
+      font-weight: 800;
+
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+
+      width: 24px;
+      height: 1px;
+
+      background: var(--green);
+    }
+
+    h1,
+    h2,
+    h3 {
+      letter-spacing: -0.035em;
+    }
+
+    h1 {
+      font-size:
+        clamp(44px, 7vw, 82px);
+
+      line-height: 0.98;
+
+      font-weight: 850;
+
+      max-width: 11ch;
+    }
+
+    h2 {
+      font-size:
+        clamp(34px, 4.5vw, 56px);
+
+      line-height: 1.04;
+    }
+
+    h3 {
+      font-size: 21px;
+      line-height: 1.15;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+
+    .btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      min-height: 50px;
+
+      padding:
+        0 22px;
+
+      border-radius: 999px;
+
+      background: var(--green);
+      color: var(--bg);
+
+      font-size: 14px;
+      font-weight: 800;
+
+      border: 1px solid transparent;
+
+      box-shadow:
+        0 12px 30px
+        rgba(74, 222, 128, 0.16);
+
+      transition:
+        transform 220ms ease,
+        box-shadow 220ms ease,
+        background 220ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+
+      background: var(--green-light);
+
+      box-shadow:
+        0 18px 40px
+        rgba(74, 222, 128, 0.22);
+    }
+
+    .btn--ghost {
+      background: transparent;
+
+      color: var(--text);
+
+      border-color:
+        var(--border-strong);
+
+      box-shadow: none;
+    }
+
+    .btn--ghost:hover {
+      background:
+        rgba(74, 222, 128, 0.07);
+
+      border-color: var(--green);
+
+      box-shadow: none;
+    }
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    nav {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      min-height: 82px;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      font-size: 19px;
+      font-weight: 850;
+
+      letter-spacing: -0.04em;
+    }
+
+    .logo-mark {
+      display: grid;
+      place-items: center;
+
+      width: 34px;
+      height: 34px;
+
+      border-radius: 10px;
+
+      background: var(--green);
+      color: var(--bg);
+
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .logo b {
+      color: var(--green);
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .links a {
+      transition:
+        color 180ms ease;
+    }
+
+    .links a:hover {
+      color: var(--green);
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(320px, 0.95fr);
+
+      gap: 70px;
+
+      align-items: center;
+
+      padding:
+        100px 0 120px;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      right: -250px;
+      top: 20px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(74, 222, 128, 0.10),
+          transparent 68%
+        );
+
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      margin-top: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--green);
+    }
+
+    .lede {
+      max-width: 52ch;
+
+      margin:
+        28px 0 34px;
+
+      color: var(--muted);
+
+      font-size:
+        clamp(16px, 1.5vw, 19px);
+
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 12px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 20px;
+
+      margin-top: 28px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .hero-meta i {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--green);
+
+      box-shadow:
+        0 0 12px
+        rgba(74, 222, 128, 0.7);
+    }
+
+    /* =========================================================
+       HERO VISUAL
+       ========================================================= */
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .visual-card {
+      position: relative;
+
+      aspect-ratio: 4 / 5;
+
+      overflow: hidden;
+
+      border-radius: 32px;
+
+      border:
+        1px solid var(--border-strong);
+
+      background:
+        linear-gradient(
+          145deg,
+          #163A26,
+          #0B1F17
+        );
+
+      box-shadow: var(--shadow);
+    }
+
+    .visual-card::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 30% 20%,
+          rgba(74, 222, 128, 0.18),
+          transparent 35%
+        );
+
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .visual-grid {
+      position: absolute;
+      inset: 0;
+
+      opacity: 0.18;
+
+      background-image:
+        linear-gradient(
+          rgba(134, 181, 156, 0.25) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(134, 181, 156, 0.25) 1px,
+          transparent 1px
+        );
+
+      background-size: 42px 42px;
+    }
+
+    .visual-center {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      width: 180px;
+      height: 180px;
+
+      transform:
+        translate(-50%, -50%);
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(74, 222, 128, 0.30),
+          rgba(74, 222, 128, 0.06) 48%,
+          transparent 70%
+        );
+
+      filter: blur(2px);
+    }
+
+    .visual-logo {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform:
+        translate(-50%, -50%);
+
+      display: grid;
+      place-items: center;
+
+      width: 104px;
+      height: 104px;
+
+      border-radius: 28px;
+
+      background:
+        rgba(11, 31, 23, 0.72);
+
+      border:
+        1px solid
+        rgba(134, 181, 156, 0.30);
+
+      backdrop-filter: blur(14px);
+
+      box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.35);
+    }
+
+    .visual-logo span {
+      font-size: 42px;
+      font-weight: 900;
+
+      color: var(--green);
+    }
+
+    .floating-card {
+      position: absolute;
+
+      z-index: 5;
+
+      padding:
+        13px 16px;
+
+      border-radius: 15px;
+
+      background:
+        rgba(11, 31, 23, 0.78);
+
+      border:
+        1px solid
+        rgba(134, 181, 156, 0.24);
+
+      backdrop-filter: blur(14px);
+
+      box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.28);
+    }
+
+    .floating-card small {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 10px;
+
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .floating-card strong {
+      display: block;
+
+      margin-top: 3px;
+
+      font-size: 14px;
+    }
+
+    .float-1 {
+      top: 12%;
+      left: -28px;
+    }
+
+    .float-2 {
+      right: -24px;
+      bottom: 14%;
+    }
+
+    /* =========================================================
+       STATS
+       ========================================================= */
+
+    .stats {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 1px;
+
+      overflow: hidden;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 22px;
+
+      background: var(--border);
+    }
+
+    .stat {
+      padding: 28px;
+
+      background:
+        rgba(18, 48, 31, 0.72);
+    }
+
+    .stat strong {
+      display: block;
+
+      color: var(--green);
+
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+
+      margin-top: 8px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    /* =========================================================
+       SECTION HEADER
+       ========================================================= */
+
+    .section-head {
+      display: grid;
+
+      grid-template-columns:
+        0.9fr 1.1fr;
+
+      gap: 40px;
+
+      align-items: end;
+
+      margin-bottom: 44px;
+    }
+
+    .section-head p {
+      max-width: 52ch;
+
+      color: var(--muted);
+
+      font-size: 16px;
+
+      line-height: 1.75;
+    }
+
+    /* =========================================================
+       CARDS
+       ========================================================= */
+
+    .row {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+
+      min-height: 250px;
+
+      padding: 30px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(22, 58, 38, 0.95),
+          rgba(18, 48, 31, 0.80)
+        );
+
+      transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        box-shadow 220ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+
+      border-color:
+        rgba(74, 222, 128, 0.35);
+
+      box-shadow:
+        0 25px 60px
+        rgba(0, 0, 0, 0.20);
+    }
+
+    .card .n {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 34px;
+      height: 34px;
+
+      margin-bottom: 40px;
+
+      border-radius: 10px;
+
+      background:
+        rgba(74, 222, 128, 0.10);
+
+      color: var(--green);
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+
+      font-size: 14px;
+
+      line-height: 1.7;
+    }
+
+    .card-line {
+      position: absolute;
+
+      left: 30px;
+      bottom: 28px;
+
+      width: 36px;
+      height: 2px;
+
+      background: var(--green);
+
+      opacity: 0.6;
+    }
+
+    /* =========================================================
+       CASE STUDY BAND
+       ========================================================= */
+
+    .band {
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(280px, 0.65fr);
+
+      gap: 60px;
+
+      align-items: center;
+
+      padding: 60px;
+
+      overflow: hidden;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #163A26,
+          #10291C
+        );
+
+      border:
+        1px solid var(--border);
+
+      box-shadow: var(--shadow);
+    }
+
+    .band::after {
+      content: "";
+
+      position: absolute;
+
+      right: -120px;
+      bottom: -160px;
+
+      width: 380px;
+      height: 380px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(74, 222, 128, 0.16),
+          transparent 68%
+        );
+    }
+
+    .quote {
+      position: relative;
+      z-index: 2;
+
+      font-size:
+        clamp(24px, 3vw, 38px);
+
+      line-height: 1.22;
+
+      font-weight: 700;
+
+      max-width: 18ch;
+    }
+
+    .who {
+      position: relative;
+      z-index: 2;
+
+      margin-top: 22px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    .band-points {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+      gap: 12px;
+    }
+
+    .band-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+    .check {
+      display: grid;
+      place-items: center;
+
+      flex: 0 0 auto;
+
+      width: 24px;
+      height: 24px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(74, 222, 128, 0.12);
+
+      color: var(--green);
+
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    /* =========================================================
+       CTA
+       ========================================================= */
+
+    .cta {
+      text-align: center;
+
+      padding:
+        110px 20px;
+    }
+
+    .cta h2 {
+      max-width: 14ch;
+
+      margin:
+        18px auto 18px;
+    }
+
+    .cta p {
+      max-width: 52ch;
+
+      margin:
+        0 auto 30px;
+
+      color: var(--muted);
+
+      line-height: 1.75;
+    }
+
+    .cta-actions {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      padding:
+        28px 0 40px;
+
+      border-top:
+        1px solid var(--border);
+
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    /* =========================================================
+       MOBILE NAV
+       ========================================================= */
+
+    .mobile-menu {
+      display: none;
+
+      width: 42px;
+      height: 42px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 12px;
+
+      background:
+        rgba(18, 48, 31, 0.7);
+
+      color: var(--text);
+
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+
+        padding-top: 75px;
+      }
+
+      .hero-copy {
+        max-width: 720px;
+      }
+
+      .hero-visual {
+        width: min(100%, 500px);
+        margin-inline: auto;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      .band {
+        grid-template-columns: 1fr;
+
+        padding: 42px;
+      }
+
+      .quote {
+        max-width: 24ch;
+      }
+    }
+
+    @media (max-width: 760px) {
+
+      .wrap {
+        width:
+          min(
+            calc(100% - 32px),
+            var(--max-width)
+          );
+      }
+
+      .links,
+      nav > .btn {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: grid;
+        place-items: center;
+      }
+
+      .hero {
+        padding:
+          65px 0 80px;
+      }
+
+      .hero h1 {
+        font-size:
+          clamp(42px, 13vw, 68px);
+      }
+
+      .stats,
+      .row {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        padding: 24px;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .band {
+        padding: 30px;
+        border-radius: 24px;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .float-1 {
+        left: 12px;
+      }
+
+      .float-2 {
+        right: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      h1 {
+        max-width: 9ch;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn,
+      .cta-actions .btn {
+        width: 100%;
+      }
+
+      .visual-card {
+        border-radius: 24px;
+      }
+
+      .floating-card {
+        padding: 10px 12px;
+      }
+
+      .floating-card strong {
+        font-size: 12px;
+      }
+
+      .floating-card small {
+        font-size: 8px;
+      }
+    }
+
+    /* =========================================================
+       ACCESSIBILITY
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <!-- =======================================================
+         NAVIGATION
+         ======================================================= -->
+
+    <nav>
+
+      <a
+        href="/"
+        class="logo"
+        aria-label="Marden home"
+      >
+        <span class="logo-mark">M</span>
+        MARDEN<b>.</b>
+      </a>
+
+      <div class="links">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#results">Results</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a
+        href="#contact"
+        class="btn"
+      >
+        Start a Project
+      </a>
+
+      <button
+        class="mobile-menu"
+        type="button"
+        aria-label="Open menu"
+        onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})"
+      >
+        ☰
+      </button>
+
+    </nav>
+
+
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
+
+    <main>
+
+      <section class="hero">
+
+        <div class="hero-copy">
+
+          <span class="eyebrow">
+            Digital Solutions
+          </span>
+
+          <h1>
+            Build something
+            <span>worth using.</span>
+          </h1>
+
+          <p class="lede">
+            I design and build modern websites,
+            software systems, and practical digital
+            solutions for people, businesses, and
+            organizations.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              href="#contact"
+              class="btn"
+            >
+              Let's Work Together
+              <span>↗</span>
+            </a>
+
+            <a
+              href="#services"
+              class="btn btn--ghost"
+            >
+              Explore Services
+            </a>
+
+          </div>
+
+          <div class="hero-meta">
+
+            <span>
+              <i></i>
+              Web Development
+            </span>
+
+            <span>
+              <i></i>
+              Software Development
+            </span>
+
+            <span>
+              <i></i>
+              Computer Engineering
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===================================================
+             VISUAL
+             =================================================== -->
+
+        <div class="hero-visual">
+
+          <div class="visual-card">
+
+            <div class="visual-grid"></div>
+
+            <div class="visual-center"></div>
+
+            <div class="visual-logo">
+              <span>M</span>
+            </div>
+
+            <div class="floating-card float-1">
+
+              <small>
+                Focus
+              </small>
+
+              <strong>
+                Technology
+              </strong>
+
+            </div>
+
+            <div class="floating-card float-2">
+
+              <small>
+                Approach
+              </small>
+
+              <strong>
+                Build • Test • Improve
+              </strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           STATS
+           ===================================================== -->
+
+      <section aria-label="Capabilities">
+
+        <div class="stats">
+
+          <div class="stat">
+            <strong>10+</strong>
+            <span>
+              Projects & experiments
+            </span>
+          </div>
+
+          <div class="stat">
+            <strong>5+</strong>
+            <span>
+              Technology areas
+            </span>
+          </div>
+
+          <div class="stat">
+            <strong>100%</strong>
+            <span>
+              Focus on practical solutions
+            </span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           SERVICES
+           ===================================================== -->
+
+      <section
+        class="section"
+        id="services"
+      >
+
+        <div class="section-head">
+
+          <div>
+
+            <span class="eyebrow">
+              What I Build
+            </span>
+
+            <h2>
+              From idea to
+              working solution.
+            </h2>
+
+          </div>
+
+          <p>
+            Each project can be shaped around the
+            actual problem, users, and workflow —
+            from a simple website to a complete
+            software system.
+          </p>
+
+        </div>
+
+
+        <div class="row">
+
+          <article class="card">
+
+            <span class="n">
+              01
+            </span>
+
+            <h3>
+              Web Development
+            </h3>
+
+            <p>
+              Responsive websites, landing pages,
+              portfolio sites, business websites,
+              and modern web interfaces designed
+              for desktop and mobile.
+            </p>
+
+            <span class="card-line"></span>
+
+          </article>
+
+
+          <article class="card">
+
+            <span class="n">
+              02
+            </span>
+
+            <h3>
+              Software Systems
+            </h3>
+
+            <p>
+              Custom dashboards, management systems,
+              databases, APIs, authentication,
+              and practical applications for
+              real-world workflows.
+            </p>
+
+            <span class="card-line"></span>
+
+          </article>
+
+
+          <article class="card">
+
+            <span class="n">
+              03
+            </span>
+
+            <h3>
+              AI & Automation
+            </h3>
+
+            <p>
+              AI-assisted workflows, automation,
+              computer vision experiments, and
+              technology integrations that reduce
+              repetitive work.
+            </p>
+
+            <span class="card-line"></span>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           PROCESS
+           ===================================================== -->
+
+      <section
+        class="section"
+        id="process"
+      >
+
+        <div class="band">
+
+          <div>
+
+            <span class="eyebrow">
+              My Approach
+            </span>
+
+            <p class="quote">
+              Good technology should solve a
+              real problem — not simply look
+              impressive.
+            </p>
+
+            <p class="who">
+              Marden C. Barangan
+              <br />
+              Software Developer /
+              Computer Engineer
+            </p>
+
+          </div>
+
+
+          <div class="band-points">
+
+            <div class="band-point">
+
+              <span class="check">
+                ✓
+              </span>
+
+              <span>
+                Understand the problem and
+                requirements.
+              </span>
+
+            </div>
+
+            <div class="band-point">
+
+              <span class="check">
+                ✓
+              </span>
+
+              <span>
+                Design a clean and practical
+                solution.
+              </span>
+
+            </div>
+
+            <div class="band-point">
+
+              <span class="check">
+                ✓
+              </span>
+
+              <span>
+                Build, test, improve, and
+                deploy.
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           RESULTS / PROJECT EXPERIENCE
+           ===================================================== -->
+
+      <section
+        class="section"
+        id="results"
+      >
+
+        <div class="section-head">
+
+          <div>
+
+            <span class="eyebrow">
+              Experience
+            </span>
+
+            <h2>
+              Technology with
+              purpose.
+            </h2>
+
+          </div>
+
+          <p>
+            My projects explore web development,
+            software systems, AI, embedded systems,
+            automation, and practical engineering.
+          </p>
+
+        </div>
+
+
+        <div class="row">
+
+          <article class="card">
+
+            <span class="n">
+              WEB
+            </span>
+
+            <h3>
+              Modern Websites
+            </h3>
+
+            <p>
+              Responsive interfaces with clear
+              layouts, smooth interactions,
+              accessible components, and
+              deployment-ready structure.
+            </p>
+
+            <span class="card-line"></span>
+
+          </article>
+
+
+          <article class="card">
+
+            <span class="n">
+              AI
+            </span>
+
+            <h3>
+              Intelligent Tools
+            </h3>
+
+            <p>
+              Experiments involving AI,
+              automation, computer vision,
+              assistants, and technology
+              integrations.
+            </p>
+
+            <span class="card-line"></span>
+
+          </article>
+
+
+          <article class="card">
+
+            <span class="n">
+              EMBED
+            </span>
+
+            <h3>
+              Hardware + Software
+            </h3>
+
+            <p>
+              Computer engineering projects
+              connecting microcontrollers,
+              sensors, displays, databases,
+              and software.
+            </p>
+
+            <span class="card-line"></span>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           CTA
+           ===================================================== -->
+
+      <section
+        class="cta"
+        id="contact"
+      >
+
+        <span class="eyebrow">
+          Start a Project
+        </span>
+
+        <h2>
+          Have an idea?
+          Let's build it.
+        </h2>
+
+        <p>
+          Tell me what you want to build,
+          what problem you are trying to solve,
+          and what you need the system to do.
+        </p>
+
+        <div class="cta-actions">
+
+          <a
+            class="btn"
+            href="mailto:mardenbarangan0728@gmail.com?subject=Project%20Inquiry"
+          >
+            Contact Marden
+            <span>↗</span>
+          </a>
+
+          <a
+            class="btn btn--ghost"
+            href="https://github.com/marden288"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View GitHub
+          </a>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- =======================================================
+         FOOTER
+         ======================================================= -->
+
+    <footer>
+
+      <span>
+        © <strong>Marden C. Barangan</strong>
+      </span>
+
+      <span>
+        Software Developer · Web Developer · Computer Engineer
+      </span>
+
+    </footer>
+
+  </div>
+
+</body>
+</html>

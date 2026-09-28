@@ -1,0 +1,19 @@
+node_modules
+dist
+dist-ssr
+*.local
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.env
+.env.*
+# .env.production holds only the Contact Worker URL - public, and the build
+# needs it - so it is the one env file that is tracked.
+!.env.production
+!.env.example

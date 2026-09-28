@@ -1,0 +1,4 @@
+/* Slab Duo - two layers per icon. The secondary is the full silhouette,
+   muted; the primary sits on top in currentColor. */
+.slab__2 { opacity: 0.32; }
+.slab__1 { opacity: 1; }
